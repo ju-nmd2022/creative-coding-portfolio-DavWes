@@ -1,34 +1,23 @@
-const size = 80;
-const gap = 20;
-const amount = 5;
-
 function setup() {
-  createCanvas(innerWidth, innerHeight);
+  createCanvas(600, 600);
 }
+
+const size = 40;
+const divider = 10;
+const numRows = 10;
+const numCols = 10;
 
 function draw() {
   background(255, 255, 255);
-  noFill();
-  stroke(0, 0, 0);
-  strokeWeight(2);
+  noStroke();
+  fill(0, 0, 0);
 
-  let y = (height - size * amount - gap * (amount - 1)) / 2;
-  let counter = 0;
-  for (let i = 0; i < amount; i++) {
-    let x = (width - size * amount - gap * (amount - 1)) / 2;
-    for (let k = 0; k < amount; k++) {
-      push();
-      translate(x, y);
-      if (counter % 3 === 0) {
-        rotate(Math.PI / 30);
-        fill(0, 0, 0);
-      }
-      square(0, 0, size);
-      pop();
-      counter++;
-      x += size + gap;
+  // noiseSeed(0);
+  for (let y = 0; y < numRows; y++) {
+    for (let x = 0; x < numCols; x++) {
+      const value = noise(x / divider, y / divider) * size;
+      ellipse(size / 2 + x * size, size / 2 + y * size, value);
     }
-    y += size + gap;
   }
 
   noLoop();
