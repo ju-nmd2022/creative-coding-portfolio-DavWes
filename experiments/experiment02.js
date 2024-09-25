@@ -2,10 +2,10 @@ function setup() {
   createCanvas(1000, 1000);
 }
 
-const size = 5;
+const size = 30;
 const divider = 10;
-const numRows = 100;
-const numCols = 100;
+const numRows = 12;
+const numCols = 1;
 
 function draw() {
   background(255, 255, 255);
